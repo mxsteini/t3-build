@@ -22,11 +22,29 @@ runner.
 * esbuild
 * browsersync
 
+# Install
+
+```bash
+npm i t3-build
+```
+
+# Usage
+
+## One run build
+```bash 
+npx t3-build build
+```
+
+## Watcher
+```bash 
+npx t3-build watch
+```
+
 ## Convention <del>over</del> without configuration
 
 To make this tool fast and easy to use, I waived any possible configuration and implemented the most usual structur I've
 seen over the years.
-The common part is to hold all none-composer-orchestrated packackages in the packages folder.
+The common part is to hold all none-packagist-packages in the packages folder.
 
 ```bash
 ├── composer.json

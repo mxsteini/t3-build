@@ -1,11 +1,13 @@
 {
   "name": "t3-build",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "watcher and builder for typo3-cms",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": "https://github.com/mxsteini/t3-build.git",
+  "bugs": "https://github.com/mxsteini/t3-build/issues",
   "keywords": [
     "TYPO3",
     "watcher",
