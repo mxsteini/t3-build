@@ -13,7 +13,7 @@ This is pretty cool if your creating your components along the BEM methodology. 
 You can use it also in other project. But you have to setup your directories to this conventions.
 
 If you wanna get rid of gulp, grunt or webpack in your php-based projects, give the idea a try - you don't need this
-runner.
+tools.
 
 ## Features
 
@@ -31,20 +31,26 @@ npm i t3-build
 # Usage
 
 ## One run build
+
 ```bash 
 npx t3-build build
 ```
 
 ## Watcher
+
 ```bash 
 npx t3-build watch
 ```
 
 ## Convention <del>over</del> without configuration
 
-To make this tool fast and easy to use, I waived any possible configuration and implemented the most usual structur I've
+To make this tool fast and easy to use, I waived any possible configuration and implemented the most usual structure I've
 seen over the years.
 The common part is to hold all none-packagist-packages in the packages folder.
+
+To get an idea, have a look of a "normal" composer-driven typo3 installation.
+
+Your site-specific extension are places in "packages"
 
 ```bash
 ├── composer.json
@@ -83,7 +89,7 @@ The common part is to hold all none-packagist-packages in the packages folder.
         └── scss
 ```
 
-All needed content from the frontend process is held in the src directory.
+All needed content for the frontend process is held in the src directory.
 
 ## src folder in detail
 
@@ -113,9 +119,9 @@ src/ext_b
     └── _variables.scss
 ```
 
-With a little glimpse of fantasy a well-trained TYPO3-engineer could see the TYPO3 folder structure.
+With a little glimpse of fantasy a well-trained TYPO3-engineer could see the TYPO3 folder structure in this directory.
 
-For prevent complex rules for Resources folder, I simply moved everything to src folder.
+To prevent complex rules for Resources folder, I simply moved everything to src folder.
 
 So you could add ```packages/*/Resources``` to your .gitignore.
 
@@ -140,19 +146,19 @@ ext_b/html/Partials/partial.html
       data-namespace-typo3-fluid="true">
 
 <div class="textpic">
-    <heaser class="textpic__header">
-        This is a header
-    </heaser>
+  <heaser class="textpic__header">
+    This is a header
+  </heaser>
 </div>
 
 <style type="text/scss">
-    .textpic {
-        background: blue;
+  .textpic {
+    background: blue;
 
-        &__header {
-            background: green
-        }
+    &__header {
+      background: green
     }
+  }
 </style>
 </html>
 ```
@@ -167,9 +173,9 @@ ext_b/Resource/Private/Partials/partial.html
 <f:asset.css identifier="ext_b/Partials/partial"
              href="EXT:ext_b/Resources/Public/Css/Partials/partial.css"></f:asset.css>
 <div class="textpic">
-    <heaser class="textpic__header">
-        This is a header
-    </heaser>
+  <heaser class="textpic__header">
+    This is a header
+  </heaser>
 </div>
 </html>
 ```
@@ -198,15 +204,18 @@ Well, some configuration is needed. Especially if you want to use browsersync.
 
 These configuration are stored in .env or could be set in environment.
 
-| Variable                       | Mandatory | default                                 |
-|--------------------------------|:---------:|-----------------------------------------|
-| T3BUILD_SRC                    |     x     | src                                     |
-| T3BUILD_PACKAGES               |     x     | packages                                |
-| T3BUILD_BRWOSERSYNC_HOST       |     x     ||
-| T3BUILD_BRWOSERSYNC_PORT       |     x     ||
-| T3BUILD_BRWOSERSYNC_PROXY      |     x     ||
-| T3BUILD_TYPO3_CLEARALLCACHECMD |     x     | ddev typo3cms cache:flush"              |
-| T3BUILD_TYPO3_CLEARCACHECMD    |     x     | ddev typo3cms cache:flush --group=pages |
+| Variable                       | Mandatory | default                                 | description                                      |
+|--------------------------------|:---------:|-----------------------------------------|--------------------------------------------------|
+| T3BUILD_SRC                    |     x     | src                                     | The folder where you put your sources            |
+| T3BUILD_PACKAGES               |     x     | packages                                | The folder where you put your packages           |
+| T3BUILD_BRWOSERSYNC_HOST       |     x     |                                         | https://browsersync.io/docs/options#option-host  |
+| T3BUILD_BRWOSERSYNC_PORT       |     x     |                                         | https://browsersync.io/docs/options#option-port  |
+| T3BUILD_BRWOSERSYNC_PROXY      |     x     |                                         | https://browsersync.io/docs/options#option-proxy |
+| T3BUILD_BRWOSERSYNC_SSL_KEY    |           |                                         | https://browsersync.io/docs/options#option-https |
+| T3BUILD_BRWOSERSYNC_SSL_CERT   |           |                                         | https://browsersync.io/docs/options#option-https |
+| T3BUILD_BRWOSERSYNC_OPEN       |           | true                                    | https://browsersync.io/docs/options#option-open  |
+| T3BUILD_TYPO3_CLEARALLCACHECMD |     x     | ddev typo3cms cache:flush"              | The "red flash" cache                            |
+| T3BUILD_TYPO3_CLEARCACHECMD    |     x     | ddev typo3cms cache:flush --group=pages | The "green flash" cache                          |
 
 # Credits
 
