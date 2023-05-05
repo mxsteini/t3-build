@@ -30,8 +30,11 @@
     "node-watch": "^0.7.3",
     "npmlog": "^7.0.1",
     "posthtml": "^0.16.6",
+    "posthtml-content": "^0.1.2",
     "posthtml-include": "^1.7.4",
     "posthtml-modules": "^0.9.1",
+    "posthtml-remove-tags": "^0.1.0",
+    "posthtml-style-to-file": "^0.2.0",
     "sass": "^1.59.3"
   },
   "type": "module"
