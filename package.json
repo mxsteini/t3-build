@@ -1,6 +1,6 @@
 {
   "name": "t3-build",
-  "version": "0.0.6",
+  "version": "1.0.0",
   "description": "watcher and builder for typo3-cms",
   "main": "index.js",
   "scripts": {
@@ -33,8 +33,6 @@
     "posthtml-content": "^0.1.2",
     "posthtml-include": "^1.7.4",
     "posthtml-modules": "^0.9.1",
-    "posthtml-remove-tags": "^0.1.0",
-    "posthtml-style-to-file": "^0.2.0",
     "sass": "^1.59.3"
   },
   "type": "module"
