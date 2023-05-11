@@ -32,19 +32,20 @@ npm i t3-build
 
 ## One run build
 
-```bash 
+```bash
 npx t3-build build
 ```
 
 ## Watcher
 
-```bash 
+```bash
 npx t3-build watch
 ```
 
 ## Convention <del>over</del> without configuration
 
-To make this tool fast and easy to use, I waived any possible configuration and implemented the most usual structure I've
+To make this tool fast and easy to use, I waived any possible configuration and implemented the most usual structure
+I've
 seen over the years.
 The common part is to hold all none-packagist-packages in the packages folder.
 
@@ -100,6 +101,7 @@ src/ext_b
 ├── assets
 │   ├── Private
 │   └── Public
+├── standalone
 ├── html
 │   ├── Templates
 │   ├── Layouts
@@ -146,19 +148,19 @@ ext_b/html/Partials/partial.html
       data-namespace-typo3-fluid="true">
 
 <div class="textpic">
-  <heaser class="textpic__header">
-    This is a header
-  </heaser>
+    <heaser class="textpic__header">
+        This is a header
+    </heaser>
 </div>
 
 <style type="text/scss">
-  .textpic {
-    background: blue;
+    .textpic {
+        background: blue;
 
-    &__header {
-      background: green
+        &__header {
+            background: green
+        }
     }
-  }
 </style>
 </html>
 ```
@@ -173,9 +175,9 @@ ext_b/Resource/Private/Partials/partial.html
 <f:asset.css identifier="ext_b/Partials/partial"
              href="EXT:ext_b/Resources/Public/Css/Partials/partial.css"></f:asset.css>
 <div class="textpic">
-  <heaser class="textpic__header">
-    This is a header
-  </heaser>
+    <heaser class="textpic__header">
+        This is a header
+    </heaser>
 </div>
 </html>
 ```
@@ -194,6 +196,28 @@ ext_b/Resources/Public/Css/Partials/partial.css
 }
 ```
 
+# TYPO3 Cache
+
+When reloading the page by browsersync, you always wants to clear the TYPO3 Page-Cache.
+
+That will cost some extra milliseconds, which could by anoying. If you are using the recommended dotenv-connector by helhum, you can easily disable the your TYPO3 cache by something like this:
+
+```php
+if ($_ENV['T3BUILD_BRWOSERSYNC_TYPO3_DISABLE_PAGECACHE'] == true) {
+    $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['cache_pages']['backend'] = \TYPO3\CMS\Core\Cache\Backend\NullBackend::class;
+    $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['cache_pagesection']['backend'] = \TYPO3\CMS\Core\Cache\Backend\NullBackend::class;
+}
+```
+
+Then you can insert
+```.dotenv
+T3BUILD_TYPO3_CLEARCACHECMD=":"
+```
+
+This is the fastest way to run this system.
+
+> **BUT BE AWARE - YOU ARE RUNNING A UNCACHED SYSTEM - THIS IS NOT NORMAL !!!!**
+
 # browsersync
 
 To use the watcher and browsersync, you have to setup the variables in the setup Configuration.
@@ -204,18 +228,21 @@ Well, some configuration is needed. Especially if you want to use browsersync.
 
 These configuration are stored in .env or could be set in environment.
 
-| Variable                       | Mandatory | default                                 | description                                      |
-|--------------------------------|:---------:|-----------------------------------------|--------------------------------------------------|
-| T3BUILD_SRC                    |     x     | src                                     | The folder where you put your sources            |
-| T3BUILD_PACKAGES               |     x     | packages                                | The folder where you put your packages           |
-| T3BUILD_BRWOSERSYNC_HOST       |     x     |                                         | https://browsersync.io/docs/options#option-host  |
-| T3BUILD_BRWOSERSYNC_PORT       |     x     |                                         | https://browsersync.io/docs/options#option-port  |
-| T3BUILD_BRWOSERSYNC_PROXY      |     x     |                                         | https://browsersync.io/docs/options#option-proxy |
-| T3BUILD_BRWOSERSYNC_SSL_KEY    |           |                                         | https://browsersync.io/docs/options#option-https |
-| T3BUILD_BRWOSERSYNC_SSL_CERT   |           |                                         | https://browsersync.io/docs/options#option-https |
-| T3BUILD_BRWOSERSYNC_OPEN       |           | true                                    | https://browsersync.io/docs/options#option-open  |
-| T3BUILD_TYPO3_CLEARALLCACHECMD |     x     | ddev typo3cms cache:flush"              | The "red flash" cache                            |
-| T3BUILD_TYPO3_CLEARCACHECMD    |     x     | ddev typo3cms cache:flush --group=pages | The "green flash" cache                          |
+| Variable                                    | Mandatory | default                                 | description                                      |
+|---------------------------------------------|:---------:|-----------------------------------------|--------------------------------------------------|
+| T3BUILD_SRC                                 |     x     | src                                     | The folder where you put your sources            |
+| T3BUILD_PACKAGES                            |     x     | packages                                | The folder where you put your packages           |
+| T3BUILD_BRWOSERSYNC_STANDALONE_HOST         |     x     |                                         | https://browsersync.io/docs/options#option-host  |
+| T3BUILD_BRWOSERSYNC_STANDALONE_PORT         |     x     |                                         | https://browsersync.io/docs/options#option-port  |
+| T3BUILD_BRWOSERSYNC_TYPO3_HOST              |     x     |                                         | https://browsersync.io/docs/options#option-host  |
+| T3BUILD_BRWOSERSYNC_TYPO3_PORT              |     x     |                                         | https://browsersync.io/docs/options#option-port  |
+| T3BUILD_BRWOSERSYNC_PROXY                   |     x     |                                         | https://browsersync.io/docs/options#option-proxy |
+| T3BUILD_BRWOSERSYNC_SSL_KEY                 |           |                                         | https://browsersync.io/docs/options#option-https |
+| T3BUILD_BRWOSERSYNC_SSL_CERT                |           |                                         | https://browsersync.io/docs/options#option-https |
+| T3BUILD_BRWOSERSYNC_OPEN                    |           | true                                    | https://browsersync.io/docs/options#option-open  |
+| T3BUILD_TYPO3_CLEARALLCACHECMD              |     x     | ddev typo3cms cache:flush"              | The "red flash" cache                            |
+| T3BUILD_TYPO3_CLEARCACHECMD                 |     x     | ddev typo3cms cache:flush --group=pages | The "green flash" cache                          |
+| T3BUILD_BRWOSERSYNC_TYPO3_DISABLE_PAGECACHE |           |                                         | See TYPO3 Cache section                          |
 
 # Credits
 
