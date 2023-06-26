@@ -8,6 +8,7 @@
   },
   "repository": "https://github.com/mxsteini/t3-build.git",
   "bugs": "https://github.com/mxsteini/t3-build/issues",
+  "homepage": "https://www.michaelstein-itb.de",
   "keywords": [
     "TYPO3",
     "watcher",
