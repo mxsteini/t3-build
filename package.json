@@ -1,6 +1,6 @@
 {
   "name": "t3-build",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "watcher and builder for typo3-cms",
   "main": "index.js",
   "scripts": {
