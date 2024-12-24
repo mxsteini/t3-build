@@ -12,7 +12,7 @@ This is pretty cool if your creating your components along the BEM methodology. 
 
 You can use it also in other project. But you have to setup your directories to this conventions.
 
-If you wanna get rid of gulp, grunt or webpack in your php-based projects, give the idea a try - you don't need this
+If you wanna get rid of gulp, grunt or webpack in your php-based projects, give the idea a try - yo6u don't need this
 tools.
 
 ## Features
