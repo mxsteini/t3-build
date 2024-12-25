@@ -33,15 +33,18 @@
     "posthtml": "^0.16.6",
     "posthtml-content": "^0.1.2",
     "posthtml-modules": "^0.9.1",
-    "sass": "1.64.1"
+    "sass": "^1.83.0"
   },
   "type": "module",
-	"t3-build": {
-		"deph": {
-
-		},
-		"sassConfig": {
-
-		}
-	}
+  "t3-build": {
+    "deph": {},
+    "sassConfig": {},
+    "addtionalWatcher": [
+      {
+        "pattern": "test",
+        "command": "echo 'test'"
+      }
+    ],
+    "addtionalBuilder": [ "echo test", "echo test2" ]
+  }
 }
