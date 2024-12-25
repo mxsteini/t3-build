@@ -244,6 +244,19 @@ These configuration are stored in .env or could be set in environment.
 | T3BUILD_TYPO3_CLEARCACHECMD                 |     x     | ddev typo3cms cache:flush --group=pages | The "green flash" cache                          |
 | T3BUILD_BRWOSERSYNC_TYPO3_DISABLE_PAGECACHE |           |                                         | See TYPO3 Cache section                          |
 
+## addtional builder and watcher
+
+You can add addtional builder and watcher to your package.json.
+
+```json
+"t3-build": {
+	"addtionalBuilder": [ "echo test", "echo test2" ],
+	"addtionalWatcher": [
+		{ "pattern": "test", "command": "echo {event} {target}" }
+	]
+}
+```
+
 # Credits
 
 * Frank Deutschmann - you encouraged me to go on in this project
