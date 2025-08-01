@@ -38,7 +38,9 @@
   "type": "module",
   "t3-build": {
     "deph": {},
-    "sassConfig": {},
+    "sassConfig": {
+		"silenceDeprecations": ["global-builtin", "import"]
+	},
     "addtionalWatcher": [
       {
         "pattern": "test",
