@@ -228,21 +228,23 @@ Well, some configuration is needed. Especially if you want to use browsersync.
 
 These configuration are stored in .env or could be set in environment.
 
-| Variable                                    | Mandatory | default                                 | description                                      |
-|---------------------------------------------|:---------:|-----------------------------------------|--------------------------------------------------|
-| T3BUILD_SRC                                 |     x     | src                                     | The folder where you put your sources            |
-| T3BUILD_PACKAGES                            |     x     | packages                                | The folder where you put your packages           |
-| T3BUILD_BRWOSERSYNC_STANDALONE_HOST         |     x     |                                         | https://browsersync.io/docs/options#option-host  |
-| T3BUILD_BRWOSERSYNC_STANDALONE_PORT         |     x     |                                         | https://browsersync.io/docs/options#option-port  |
-| T3BUILD_BRWOSERSYNC_TYPO3_HOST              |     x     |                                         | https://browsersync.io/docs/options#option-host  |
-| T3BUILD_BRWOSERSYNC_TYPO3_PORT              |     x     |                                         | https://browsersync.io/docs/options#option-port  |
-| T3BUILD_BRWOSERSYNC_PROXY                   |     x     |                                         | https://browsersync.io/docs/options#option-proxy |
-| T3BUILD_BRWOSERSYNC_SSL_KEY                 |           |                                         | https://browsersync.io/docs/options#option-https |
-| T3BUILD_BRWOSERSYNC_SSL_CERT                |           |                                         | https://browsersync.io/docs/options#option-https |
-| T3BUILD_BRWOSERSYNC_OPEN                    |           | true                                    | https://browsersync.io/docs/options#option-open  |
-| T3BUILD_TYPO3_CLEARALLCACHECMD              |     x     | ddev typo3cms cache:flush"              | The "red flash" cache                            |
-| T3BUILD_TYPO3_CLEARCACHECMD                 |     x     | ddev typo3cms cache:flush --group=pages | The "green flash" cache                          |
-| T3BUILD_BRWOSERSYNC_TYPO3_DISABLE_PAGECACHE |           |                                         | See TYPO3 Cache section                          |
+| Variable                                    | Mandatory | default                                 | description                                                                              |
+|---------------------------------------------|:---------:|-----------------------------------------|------------------------------------------------------------------------------------------|
+| T3BUILD_SRC                                 |     x     | src                                     | The folder where you put your sources                                                    |
+| T3BUILD_PACKAGES                            |     x     | packages                                | The folder where you put your packages                                                   |
+| T3BUILD_CSS                                 |     x     | Css                                     | The folder where your distributed css-files go to within the "Resources/Public"-folder.  |
+| T3BUILD_JS                                  |     x     | Js                                      | The folder where your distributed js-files go to within the "Resources/Public"-folder.   |
+| T3BUILD_BRWOSERSYNC_STANDALONE_HOST         |     x     |                                         | https://browsersync.io/docs/options#option-host                                          |
+| T3BUILD_BRWOSERSYNC_STANDALONE_PORT         |     x     |                                         | https://browsersync.io/docs/options#option-port                                          |
+| T3BUILD_BRWOSERSYNC_TYPO3_HOST              |     x     |                                         | https://browsersync.io/docs/options#option-host                                          |
+| T3BUILD_BRWOSERSYNC_TYPO3_PORT              |     x     |                                         | https://browsersync.io/docs/options#option-port                                          |
+| T3BUILD_BRWOSERSYNC_PROXY                   |     x     |                                         | https://browsersync.io/docs/options#option-proxy                                         |
+| T3BUILD_BRWOSERSYNC_SSL_KEY                 |           |                                         | https://browsersync.io/docs/options#option-https                                         |
+| T3BUILD_BRWOSERSYNC_SSL_CERT                |           |                                         | https://browsersync.io/docs/options#option-https                                         |
+| T3BUILD_BRWOSERSYNC_OPEN                    |           | true                                    | https://browsersync.io/docs/options#option-open                                          |
+| T3BUILD_TYPO3_CLEARALLCACHECMD              |     x     | ddev typo3cms cache:flush"              | The "red flash" cache                                                                    |
+| T3BUILD_TYPO3_CLEARCACHECMD                 |     x     | ddev typo3cms cache:flush --group=pages | The "green flash" cache                                                                  |
+| T3BUILD_BRWOSERSYNC_TYPO3_DISABLE_PAGECACHE |           |                                         | See TYPO3 Cache section                                                                  |
 
 ## addtional builder and watcher
 
